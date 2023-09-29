@@ -1,0 +1,29 @@
+{
+  "name": "eslint-config-vue-prettier-ts",
+  "version": "0.0.1",
+  "description": "Freedom Evenden's ESlint config for Vue projects with Prettier and TypeScript support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "eslint": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.44.3",
+    "eslint": "^8.50.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "eslint-define-config": "^1.23.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "vue-eslint-parser": "^9.3.1"
+  }
+}
