@@ -1,17 +1,30 @@
 {
-  "name": "eslint-config-vue-prettier-ts",
+  "name": "@f3ve/eslint-config",
   "version": "0.0.1",
-  "description": "Freedom Evenden's ESlint config for Vue projects with Prettier and TypeScript support",
-  "main": "index.js",
+  "description": "Freedom Evenden's ESlint config.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "keywords": [
+    "eslint-config",
+    "f3ve"
+  ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src/index.ts --format esm,cjs --clean --dts",
     "lint": "eslint ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Freedom Evenden (https://github.com/f3ve/)",
+  "license": "MIT",
   "peerDependencies": {
     "eslint": ">=8.0.0"
   },
