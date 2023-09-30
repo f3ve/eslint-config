@@ -7,6 +7,10 @@ export function jsConfig(opts: {
   browser?: boolean;
   node?: boolean;
   jsx?: boolean;
+  globals?: Record<
+    string,
+    boolean | 'off' | 'readonly' | 'writable' | 'readable' | 'writeable'
+  >;
 }): FlatESLintConfigItem[] {
   return [
     js.configs.recommended,
@@ -23,6 +27,7 @@ export function jsConfig(opts: {
           document: 'readonly',
           navigator: 'readonly',
           window: 'readonly',
+          ...opts.globals,
         },
         parserOptions: {
           ecmaFeatures: {

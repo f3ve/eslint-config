@@ -1,5 +1,11 @@
 import { FlatESLintConfigItem } from 'eslint-define-config';
-import { vueConfig, jsConfig, tsConfig, prettierConfig } from './configs';
+import {
+  vueConfig,
+  jsConfig,
+  tsConfig,
+  prettierConfig,
+  unocssConfig,
+} from './configs';
 import { GLOB_IGNORE } from './globs';
 
 type f3veConfigOptions = {
@@ -11,6 +17,9 @@ type f3veConfigOptions = {
 
   /** Enable Vue config */
   vue?: boolean;
+
+  /** Enable unocss config */
+  unocss?: boolean;
 
   /** Enable TypeScript config */
   typescript?: boolean;
@@ -26,6 +35,12 @@ type f3veConfigOptions = {
 
   /** Enable JSX features */
   jsx?: boolean;
+
+  /** Custom global variables */
+  globals?: Record<
+    string,
+    boolean | 'off' | 'readonly' | 'writable' | 'readable' | 'writeable'
+  >;
 };
 
 export default function f3veEslintConfig(opts: f3veConfigOptions) {
@@ -38,12 +53,18 @@ export default function f3veEslintConfig(opts: f3veConfigOptions) {
       ignores,
     },
 
-    ...jsConfig({ browser: opts.browser, node: opts.node, jsx: opts.jsx }),
+    ...jsConfig({
+      browser: opts.browser,
+      node: opts.node,
+      jsx: opts.jsx,
+      globals: opts.globals,
+    }),
   ];
 
   if (opts.typescript) configs.push(...tsConfig(opts.vue));
   if (opts.vue) configs.push(...vueConfig(opts.typescript));
   if (opts.prettier) configs.push(...prettierConfig());
+  if (opts.unocss) configs.push(...unocssConfig());
 
   return configs;
 }
