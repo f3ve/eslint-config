@@ -31,7 +31,7 @@ jobs:
         run: pnpm i
 
       - name: Publish package
-        run: pnpm publish
+        run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
