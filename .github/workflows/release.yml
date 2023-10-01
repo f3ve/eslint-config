@@ -30,10 +30,13 @@ jobs:
       - name: Install dependencies
         run: pnpm i
 
-      - name: Publish package
-        run: pnpm publish --access public
+      - name: Set publishing config
+        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Publish
+        run: pnpm publish --access=public
 
   create-github-release:
     name: Create GitHub Release
