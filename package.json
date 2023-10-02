@@ -5,6 +5,21 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
+  "funding": [
+    {
+      "type": "GitHub Sponsors",
+      "url": "https://github.com/sponsors/f3ve"
+    },
+    {
+      "type": "Buy me a Coffee",
+      "url": "https://www.buymeacoffee.com/f3ve"
+    }
+  ],
+  "homepage": "https://github.com/f3ve/eslint-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/f3ve/eslint-config"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
