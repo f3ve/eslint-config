@@ -36,7 +36,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Publish
-        run: pnpm publish --access=public
+        run: pnpm publish --access=public --no-git-checks
 
   create-github-release:
     name: Create GitHub Release
