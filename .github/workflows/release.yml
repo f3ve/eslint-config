@@ -37,6 +37,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
+      - name: Compile code
+        run: pnpm run build
+
       - name: Publish
         run: pnpm publish --access=public --no-git-checks
 
