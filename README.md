@@ -52,11 +52,11 @@ export default f3ve(opts);
 ```js
 import f3ve from '@f3ve/eslint/config';
 
-export default {
+export default [
   ...f3ve(opts),
 
   /* ... Additional configs ... */
-};
+];
 ```
 
 ### Options
@@ -68,16 +68,12 @@ See [Options type definition](/src/types.ts)
 ```js
 import f3ve from '@f3ve/eslint/config';
 
-export default {
-  ...f3ve({
+export default f3ve({
     prettier: true,
     vue: true,
     typescript: true,
     browser: true,
   }),
-
-  /* ... Additional configs ... */
-};
 ```
 
 ## Contributing
@@ -86,4 +82,4 @@ Please refer to [Contributing](https://github.com/f3ve/.github/blob/main/CONTRIB
 
 ## License
 
-[MIT](/LICENSE)
+[MIT](https://github.com/f3ve/eslint-config/blob/main/LICENSE)
