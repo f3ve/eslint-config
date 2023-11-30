@@ -1,22 +1,27 @@
 import { FlatESLintConfigItem } from 'eslint-define-config';
 import globals from 'globals';
-import { GLOB_JS } from '../globs';
+import { GLOB_JS, GLOB_JSX, GLOB_VUE } from '../globs';
 import js from '@eslint/js';
 
 export function jsConfig(opts: {
   browser?: boolean;
   node?: boolean;
   jsx?: boolean;
+  vue?: boolean;
   globals?: Record<
     string,
     boolean | 'off' | 'readonly' | 'writable' | 'readable' | 'writeable'
   >;
 }): FlatESLintConfigItem[] {
+  const files = [GLOB_JS];
+  if (opts.jsx) files.push(GLOB_JSX);
+  if (opts.vue) files.push(GLOB_VUE);
+
   return [
     js.configs.recommended,
 
     {
-      files: [GLOB_JS],
+      files,
       languageOptions: {
         ecmaVersion: 2021,
         sourceType: 'module',
