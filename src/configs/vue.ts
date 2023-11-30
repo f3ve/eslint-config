@@ -4,7 +4,10 @@ import vueParser from 'vue-eslint-parser';
 import vuePlugin from 'eslint-plugin-vue';
 import { GLOB_VUE } from '../globs';
 
-export function vueConfig(typescript?: boolean): FlatESLintConfigItem[] {
+export function vueConfig(
+  typescript?: boolean,
+  jsx?: boolean,
+): FlatESLintConfigItem[] {
   return [
     {
       files: [GLOB_VUE],
@@ -15,6 +18,9 @@ export function vueConfig(typescript?: boolean): FlatESLintConfigItem[] {
           parser: typescript ? (tsParser as unknown as Parser) : undefined,
           extraFileExtensions: ['.vue'],
           sourceType: 'module',
+          ecmaFeatures: {
+            jsx,
+          },
         },
       },
       plugins: {

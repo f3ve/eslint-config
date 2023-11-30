@@ -27,8 +27,8 @@ export default function f3veEslintConfig(opts: f3veConfigOptions) {
     }),
   ];
 
-  if (opts.typescript) configs.push(...tsConfig(opts.vue));
-  if (opts.vue) configs.push(...vueConfig(opts.typescript));
+  if (opts.typescript) configs.push(...tsConfig(opts.vue, opts.jsx));
+  if (opts.vue) configs.push(...vueConfig(opts.typescript, opts.jsx));
   if (opts.prettier) configs.push(...prettierConfig());
   if (opts.unocss) configs.push(...unocssConfig());
 
