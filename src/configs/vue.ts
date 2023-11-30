@@ -2,15 +2,21 @@ import { FlatESLintConfigItem, Parser } from 'eslint-define-config';
 import tsParser from '@typescript-eslint/parser';
 import vueParser from 'vue-eslint-parser';
 import vuePlugin from 'eslint-plugin-vue';
-import { GLOB_VUE } from '../globs';
+import { GLOB_JSX, GLOB_TSX, GLOB_VUE } from '../globs';
 
 export function vueConfig(
   typescript?: boolean,
   jsx?: boolean,
 ): FlatESLintConfigItem[] {
+  const files = [GLOB_VUE];
+  if (jsx) {
+    if (typescript) files.push(GLOB_TSX);
+    files.push(GLOB_JSX);
+  }
+
   return [
     {
-      files: [GLOB_VUE],
+      files,
       languageOptions: {
         ecmaVersion: 'latest',
         parser: vueParser,

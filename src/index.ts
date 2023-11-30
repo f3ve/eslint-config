@@ -24,6 +24,7 @@ export default function f3veEslintConfig(opts: f3veConfigOptions) {
       node: opts.node,
       jsx: opts.jsx,
       globals: opts.globals,
+      vue: opts.vue,
     }),
   ];
 
