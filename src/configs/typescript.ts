@@ -3,7 +3,7 @@ import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import { GLOB_TS, GLOB_VUE } from '../globs';
 
-export function tsConfig(vue?: boolean): FlatESLintConfigItem[] {
+export function tsConfig(vue?: boolean, jsx?: boolean): FlatESLintConfigItem[] {
   const files = vue ? [GLOB_TS, GLOB_VUE] : [GLOB_TS];
 
   return [
@@ -13,6 +13,11 @@ export function tsConfig(vue?: boolean): FlatESLintConfigItem[] {
         ecmaVersion: 2021,
         parser: tsParser,
         sourceType: 'module',
+        parserOptions: {
+          ecmaFeatures: {
+            jsx,
+          },
+        },
       },
 
       plugins: {
