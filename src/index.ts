@@ -1,4 +1,4 @@
-import { FlatESLintConfigItem } from 'eslint-define-config';
+import { type FlatESLintConfig } from 'eslint-define-config';
 import {
   vueConfig,
   jsConfig,
@@ -14,7 +14,7 @@ export default function f3veEslintConfig(opts: f3veConfigOptions) {
     ? [...opts.ignores, ...GLOB_IGNORE]
     : GLOB_IGNORE;
 
-  const configs: FlatESLintConfigItem[] = [
+  const configs: FlatESLintConfig[] = [
     {
       ignores,
     },
