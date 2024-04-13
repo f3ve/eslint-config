@@ -41,7 +41,7 @@
   "author": "Freedom Evenden (https://github.com/f3ve/)",
   "license": "MIT",
   "peerDependencies": {
-    "eslint": ">=8.0.0"
+    "eslint": "^9.0.0"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.9",
