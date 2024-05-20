@@ -1,7 +1,7 @@
 import unocss from '@unocss/eslint-config/flat';
-import { FlatESLintConfig } from 'eslint-define-config';
+import { Linter } from 'eslint';
 
-export function unocssConfig(): FlatESLintConfig[] {
+export function unocssConfig(): Linter.FlatConfig[] {
   return [
     unocss,
     {

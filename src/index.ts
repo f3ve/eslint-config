@@ -1,4 +1,3 @@
-import { type FlatESLintConfig } from 'eslint-define-config';
 import {
   vueConfig,
   jsConfig,
@@ -7,14 +6,17 @@ import {
   unocssConfig,
 } from './configs';
 import { GLOB_IGNORE } from './globs';
+import { type Linter } from 'eslint';
 import type { f3veConfigOptions } from './types';
 
-export default function f3veEslintConfig(opts: f3veConfigOptions) {
+export default function f3veEslintConfig(
+  opts: f3veConfigOptions,
+): Linter.FlatConfig[] {
   const ignores = opts.ignores
     ? [...opts.ignores, ...GLOB_IGNORE]
     : GLOB_IGNORE;
 
-  const configs: FlatESLintConfig[] = [
+  const configs: Linter.FlatConfig[] = [
     {
       ignores,
     },

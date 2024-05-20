@@ -1,7 +1,7 @@
-import { FlatESLintConfig } from 'eslint-define-config';
 import globals from 'globals';
 import { GLOB_JS, GLOB_JSX, GLOB_VUE } from '../globs';
 import js from '@eslint/js';
+import { Linter } from 'eslint';
 
 export function jsConfig(opts: {
   browser?: boolean;
@@ -12,7 +12,7 @@ export function jsConfig(opts: {
     string,
     boolean | 'off' | 'readonly' | 'writable' | 'readable' | 'writeable'
   >;
-}): FlatESLintConfig[] {
+}): Linter.FlatConfig[] {
   const files = [GLOB_JS];
   if (opts.jsx) files.push(GLOB_JSX);
   if (opts.vue) files.push(GLOB_VUE);
