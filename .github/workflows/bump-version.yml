@@ -55,6 +55,11 @@ jobs:
           git config user.name 'f3ve'
           git config user.email '${{ secrets.MY_EMAIL }}'
 
+      - name: Commit changes if any
+        run: |
+          git add .
+          git commit -m "Committing changes before version bump" || echo "No changes to commit"
+
       - name: bump version
         run: npm version ${{ github.event.inputs.version }}
 
